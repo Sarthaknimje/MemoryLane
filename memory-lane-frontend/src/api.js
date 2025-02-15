@@ -1,12 +1,12 @@
 import axios from "axios";
 
 const API = axios.create({
-    baseURL: "http://localhost:5001/api",
+    baseURL: process.env.REACT_APP_API_URL || "http://localhost:5001/api",
 });
 
 // Only add token interceptor for protected routes
 const protectedAPI = axios.create({
-    baseURL: "http://localhost:5001/api",
+    baseURL: process.env.REACT_APP_API_URL || "http://localhost:5001/api",
 });
 
 protectedAPI.interceptors.request.use((config) => {
